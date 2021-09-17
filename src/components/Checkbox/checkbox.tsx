@@ -10,7 +10,7 @@ const Icon = styled.svg`
   fill: none;
   stroke: white;
   stroke-width: 2px;
-  margin-top: -12px;
+  margin-top: -13px;
   font-size: 1.2rem;
 `;
 
@@ -25,6 +25,8 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
   width: 20px;
   height: 20px;
   cursor: pointer;
+  z-index: 1;
+  opacity: 0;
 `;
 
 const StyledCheckbox = styled.div<{ checked: boolean }>`
@@ -43,14 +45,14 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   }
 `;
 
-interface IProps {
+interface ICheckBoxProps {
   className?: string;
   checked: boolean;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   labelWrap?: boolean;
 }
 
-const Checkbox: React.FC<IProps> = ({
+const Checkbox: React.FC<ICheckBoxProps> = ({
   className,
   checked,
   ...props
