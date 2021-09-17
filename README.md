@@ -1,2 +1,2 @@
 # ChLabsAdmin
-Front end ChLabs Admin
+Front end ChLabs BackOffice
