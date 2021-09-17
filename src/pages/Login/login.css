@@ -1,0 +1,101 @@
+body{
+    background: var(--purple-dark) !important;
+}
+
+.login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form{
+    width: 400px;
+    height: 500px;
+    border-radius: 8px;
+    background: var(--purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 10px 10px rgba(0,0,0,0.08);
+}
+
+.login-form-content{
+    width: 80%;
+    height: 80%;
+}
+
+.login-form-content h3{
+    color: var(--white-label-text);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+form{
+    width: 100%;
+    height: 90%;
+}
+
+.input-container{
+    width: 100%;
+    height: 22%;
+    margin-top: 30px;
+}
+
+.input-container label{
+    font-weight: bold;
+    color: var(--white-label-text);
+    
+}
+
+.input-container input{
+    margin-top: 10px;
+    background: var(--purple-input-color);
+    border-radius: 3px;
+    padding: 12px;
+    width: 100%;
+    outline: 0;
+    color: var(--white-label-text);
+}
+
+.form-button{
+    background: var(--purple-dark);
+    color: var(--white-label-text);
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.form-button:hover{
+    background: var(--purple-dark-hover);
+    transition: .5s;
+}
+
+.container-checkbox{
+    margin-top: 3px !important;
+}
+
+.container-checkbox p{
+    text-align: justify;
+    transform: translate(-10px, 7px);
+    color: var(--white-label-text);
+    font-weight: bold;
+    opacity: .7;
+}
+
+.remember-checkbox{
+    width: 30px !important;
+    height: 30px !important; 
+    border: 1px solid white;
+    width: 10% !important;
+    float: left;
+    transform: translate(-9px, 3px);
+}
+
+input[type="checkbox"]{
+    border: 1px solid white;
+}
