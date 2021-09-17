@@ -60,42 +60,21 @@ form{
 }
 
 .form-button{
-    background: var(--purple-dark);
-    color: var(--white-label-text);
-    padding: 12px;
-    width: 100%;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: .5s;
-    cursor: pointer;
-}
-
-.form-button:hover{
-    background: var(--purple-dark-hover);
-    transition: .5s;
+    width: 100% !important;
 }
 
 .container-checkbox{
-    margin-top: 3px !important;
+    margin-top: 10px !important;
 }
 
 .container-checkbox p{
     text-align: justify;
-    transform: translate(-10px, 7px);
+    transform: translate(-4px, 6px);
     color: var(--white-label-text);
     font-weight: bold;
     opacity: .7;
 }
 
 .remember-checkbox{
-    width: 30px !important;
-    height: 30px !important; 
-    border: 1px solid white;
-    width: 10% !important;
     float: left;
-    transform: translate(-9px, 3px);
-}
-
-input[type="checkbox"]{
-    border: 1px solid white;
 }

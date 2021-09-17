@@ -1,23 +1,31 @@
 import { ChangeEvent, Component } from "react";
 import Checkbox from "../../components/Checkbox/checkbox";
+import Button from "../../components/Button/button";
 import './login.css';
 
 interface ILoginFormViewModel {
     email: String
     password: String
-    remember: boolean
 }
 
-class Login extends Component<ILoginFormViewModel>{
+class Login extends Component<ILoginFormViewModel>{    
+    state = {
+        remember: true,
+        isLoading: false
+    }
+    
     loginViewModel : ILoginFormViewModel = {
         email: "",
         password: "",
-        remember: true
     }
     
     handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        this.loginViewModel.remember = event.target.checked;
+        this.state.remember = event.target.checked;
         this.setState({checked: event.target.checked});
+    }
+
+    loginButtonHandleClick = () => {
+        this.setState({isLoading: !this.state.isLoading});
     }
 
     render(){
@@ -40,12 +48,15 @@ class Login extends Component<ILoginFormViewModel>{
                             </div>
     
                             <div className="input-container container-checkbox">
-                                <Checkbox checked={this.loginViewModel.remember} onChange={this.handleCheckboxChange} />
+                                <Checkbox className="remember-checkbox" checked={this.state.remember} onChange={this.handleCheckboxChange} />
+                                <p>Remember me</p>
                             </div>
-    
-                            <button className="form-button">
-                                Login
-                            </button>
+
+                            <Button 
+                                className = "form-button"
+                                text = "Login"
+                                onClick={this.loginButtonHandleClick}
+                                isLoading={this.state.isLoading} />
                         </form>
                     </div>
                 </div>
