@@ -2,6 +2,7 @@ import { ChangeEvent, Component } from "react";
 import Checkbox from "../../components/Checkbox/checkbox";
 import Button from "../../components/Button/button";
 import './login.css';
+import { Link } from "react-router-dom";
 
 interface ILoginFormViewModel {
     email: String
@@ -52,8 +53,12 @@ class Login extends Component<ILoginFormViewModel>{
                                 <p>Remember me</p>
                             </div>
 
+                            <div className="input-container container-forgot-password">
+                                <Link to="/forgot-password">Forgot password?</Link>
+                            </div>
+
                             <Button 
-                                className = "form-button"
+                                className = "login-form-button"
                                 text = "Login"
                                 onClick={this.loginButtonHandleClick}
                                 isLoading={this.state.isLoading} />
