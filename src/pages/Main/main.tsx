@@ -6,9 +6,20 @@ const Main = (): ReactElement => {
     return(
         <section className="main">
             Main Page!
+            
             <br />
             <Link to="/login">
                 Login
+            </Link>
+
+            <br />
+            <Link to="/forgot-password">
+                Forgot Password
+            </Link>
+
+            <br />
+            <Link to="/dashboard">
+                Dashboard
             </Link>
         </section>
     );
