@@ -12,6 +12,9 @@
   --white-label-text: #FFFFFF;
   --black-background: #1F2327;
   --black-component: #2E3337;
+  --card-normal-text: #3E5EDE;
+  --card-danger-text: #B31212;
+  --card-success-text: #15A362;
 }
 
 body {
