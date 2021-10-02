@@ -3,7 +3,7 @@ import './navbar.css';
 
 interface INavbarProps {
     menuChecked?: number;
-  }
+}
 
 const Navbar: React.FC<INavbarProps> = ({
     menuChecked
