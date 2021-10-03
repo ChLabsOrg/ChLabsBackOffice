@@ -10,12 +10,16 @@
   --purple-light: #7C228A;
   --purple-input-color: #83488C;
   --white-label-text: #FFFFFF;
+  --black-background: #1F2327;
+  --black-component: #2E3337;
+  --card-normal-text: #3E5EDE;
+  --card-danger-text: #B31212;
+  --card-success-text: #15A362;
+  --border-color: rgba(255,255,255, .1); 
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Ubuntu' !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
