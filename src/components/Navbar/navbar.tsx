@@ -23,7 +23,7 @@ const Navbar: React.FC<INavbarProps> = ({
                 <div className="ch-navbar-user-image-container">
                     <div className="ch-navbar-user-image">
                         <a href="https://eschechola.com.br/images/me.png">
-                            <img src="https://eschechola.com.br/images/me.png" />
+                            <img src="https://eschechola.com.br/images/me.png" alt="your pic"/>
                         </a>
                     </div>
                 </div>
