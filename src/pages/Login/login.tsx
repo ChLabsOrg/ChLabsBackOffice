@@ -21,7 +21,6 @@ class Login extends Component<ILoginFormViewModel>{
     }
     
     handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        this.state.remember = event.target.checked;
         this.setState({checked: event.target.checked});
     }
 
