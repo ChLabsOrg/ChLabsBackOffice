@@ -5,13 +5,11 @@
 }
 
 :root {
-  --purple-dark: #5B1865;
-  --purple-dark-hover: #2E0B33;
-  --purple-light: #7C228A;
-  --purple-input-color: #83488C;
   --white-label-text: #FFFFFF;
   --black-background: #1F2327;
   --black-component: #2E3337;
+  --black-input-color: #4B5257;
+  --black-background-hover: #101214;
   --card-normal-text: #3E5EDE;
   --card-danger-text: #B31212;
   --card-success-text: #15A362;
