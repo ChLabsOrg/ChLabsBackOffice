@@ -21,7 +21,9 @@ class Login extends Component<ILoginFormViewModel>{
     }
     
     handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>): void => {
-        this.setState({checked: event.target.checked});
+        // eslint-disable-next-line
+        var { remember } = this.state;
+        this.setState({remember: event.target.checked});
     }
 
     loginButtonHandleClick = () => {
@@ -35,24 +37,24 @@ class Login extends Component<ILoginFormViewModel>{
                     <div className="login-form-content">
                         <h3>Sign In</h3>
                         <br />
-                        <form>
-                            <div className="input-container">
+                        <form className="login-form-size">
+                            <div className="login-input-container">
                                 <label>Email</label>
                                 <br />
                                 <input type="email" name="email"/>
                             </div>
-                            <div className="input-container">
+                            <div className="login-input-container">
                                 <label>Password</label>
                                 <br />
                                 <input type="password" name="password"/>
                             </div>
     
-                            <div className="input-container container-checkbox">
+                            <div className="login-input-container container-checkbox">
                                 <Checkbox className="remember-checkbox" checked={this.state.remember} onChange={this.handleCheckboxChange} />
                                 <p>Remember me</p>
                             </div>
 
-                            <div className="input-container container-forgot-password">
+                            <div className="login-input-container container-forgot-password">
                                 <Link to="/forgot-password">Forgot password?</Link>
                             </div>
 
