@@ -1,5 +1,5 @@
 .custom-button{
-    background: var(--purple-dark);
+    background: var(--black-background);
     color: var(--white-label-text);
     padding: 12px;
     width: 350px;
@@ -13,7 +13,7 @@
 }
 
 .custom-button:hover{
-    background: var(--purple-dark-hover);
+    background: var(--black-background-hover);
     transition: .5s;
 }
 

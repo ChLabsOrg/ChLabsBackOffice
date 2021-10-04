@@ -33,7 +33,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   display: inline-block;
   width: 20px;
   height: 20px;
-  background: var(--purple-dark);
+  background: var(--black-input-color);
   border-radius: 5px;
   transition: all 150ms;
   cursor: pointer;

@@ -4,14 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--purple-dark) !important;
+    background: var(--black-background);
 }
 
 .login-form{
     width: 400px;
     height: 550px;
     border-radius: 8px;
-    background: var(--purple-light);
+    background: var(--black-component);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +48,7 @@
 
 .login-input-container input{
     margin-top: 10px;
-    background: var(--purple-input-color);
+    background: var(--black-input-color);
     border-radius: 3px;
     padding: 8px;
     width: 100%;
