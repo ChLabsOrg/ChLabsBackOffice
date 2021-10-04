@@ -33,13 +33,13 @@ class ForgotPassword extends Component<IForgotPasswordFormViewModel>{
                         </h3>
                         <br />
                         <form>
-                            <div className="input-container">
+                            <div className="forgot-input-container">
                                 <label>Email</label>
                                 <br />
                                 <input type="email" name="email"/>
                             </div>
 
-                            <div className="input-container container-have-account">
+                            <div className="forgot-input-container container-have-account">
                                 <Link to="/login">Already have account?</Link>
                             </div>
 
