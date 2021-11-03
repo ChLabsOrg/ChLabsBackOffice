@@ -26,3 +26,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.loading-container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.loading-icon{
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(255,255,255,0.7);
+  border-top: 4px solid rgba(255,255,255,0.4);
+  border-radius: 100%;
+  animation: RotateLogin .6s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes RotateLogin {
+  0%{
+      transform: rotate(0deg);
+  }
+  100%{
+      transform: rotate(360deg);
+  }
+}
