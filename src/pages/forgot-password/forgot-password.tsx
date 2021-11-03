@@ -1,24 +1,62 @@
-import { Component } from "react";
+import { ChangeEvent, Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/button";
+import ToastService from "../../services/toastService";
+import AdministratorService from "../../services/administratorService";
 import './forgot-password.css';
 
-interface IForgotPasswordFormViewModel {
-    email: String
-}
+class ForgotPassword extends Component{
+    _administratorService: AdministratorService;
+    _toastService: ToastService;
 
+    constructor(props: any){
+        super(props);
 
-class ForgotPassword extends Component<IForgotPasswordFormViewModel>{
+        this._toastService = new ToastService();
+        this._administratorService = new AdministratorService();
+        if(this._administratorService.administratorAlreadyLogged())
+        {
+            var userData = this._administratorService.getLoggedAdministratorData();
+            if (userData.remember)
+                window.location.href = "/dashboard";
+            else
+                this._administratorService.logoutAdministrator();
+        }
+    }
+
     state = {
-        isLoading: false
+        isLoading: false,
+        email: ""
     }
 
-    forgotPasswordViewModel : IForgotPasswordFormViewModel = {
-        email: "",
+    forgotPasswordButtonHandleClick = async () => {
+        this.setState({isLoading: true});
+
+        if(this.fieldsAreValid(this.state.email)){
+            const response = await this._administratorService.recoveryAdministratorPassword(
+                this.state.email);
+
+            if (!response.success)
+                this._toastService.showErrorMessage(response.message);
+            else
+                this._toastService.showSuccessMessage(response.message);
+        }
+
+        this.setState({isLoading: false});
     }
 
-    loginButtonHandleClick = () => {
-        this.setState({isLoading: !this.state.isLoading});
+    onEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
+        this.setState({email: event.target.value});
+    }
+
+    fieldsAreValid = (email: String): boolean =>
+    {
+        if(email === ""){
+            this._toastService.showErrorMessage('Please insert a valid email!');
+            return false;
+        }
+
+        return true;
     }
 
     render(){
@@ -36,7 +74,11 @@ class ForgotPassword extends Component<IForgotPasswordFormViewModel>{
                             <div className="forgot-input-container">
                                 <label>Email</label>
                                 <br />
-                                <input type="email" name="email"/>
+                                <input 
+                                    type="email"
+                                    name="email"
+                                    value={this.state.email}
+                                    onChange={this.onEmailChange}/>
                             </div>
 
                             <div className="forgot-input-container container-have-account">
@@ -46,7 +88,7 @@ class ForgotPassword extends Component<IForgotPasswordFormViewModel>{
                             <Button 
                                 className = "form-button"
                                 text = "Reset Password"
-                                onClick={this.loginButtonHandleClick}
+                                onClick={this.forgotPasswordButtonHandleClick}
                                 isLoading={this.state.isLoading} />
                         </form>
                     </div>

@@ -1,28 +1,27 @@
-import { ReactElement } from "react";
 import './main.css';
-import { Link } from "react-router-dom";
+import { Component } from "react";
+import AdministratorService from '../../services/administratorService';
 
-const Main = (): ReactElement => {
-    return(
-        <section className="main">
-            Main Page!
-            
-            <br />
-            <Link to="/login">
-                Login
-            </Link>
+class Main extends Component {
+    constructor(props: any){
+        super(props);
+        const _administratorService = new AdministratorService();
 
-            <br />
-            <Link to="/forgot-password">
-                Forgot Password
-            </Link>
+        if(_administratorService.administratorAlreadyLogged())
+            window.location.href = "/dashboard";
+        else
+            window.location.href = "/login";
+    }
 
-            <br />
-            <Link to="/dashboard">
-                Dashboard
-            </Link>
-        </section>
-    );
+    render(){
+        return(
+            <section className="main">
+                <div className="loading-container">
+                    <div className="loading-icon"></div>
+                </div>
+            </section>
+        );
+    }
 };
 
 export default Main;

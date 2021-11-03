@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import AdministratorService from '../../services/administratorService';
 import './navbar.css';
 
 interface INavbarProps {
     menuChecked?: number;
+}
+
+const logout = () =>{
+    const _administratorService = new AdministratorService();
+    _administratorService.logoutAdministrator();
+
+    window.location.href = "/";
 }
 
 const Navbar: React.FC<INavbarProps> = ({
@@ -76,15 +84,6 @@ const Navbar: React.FC<INavbarProps> = ({
                     <Link to="/dashboard">
                         <div className="ch-navbar-menu-container-item">
                             <span>
-                                <i className="fa fa-user" aria-hidden="true"></i>
-                                Accounts
-                            </span>
-                        </div>
-                    </Link>
-
-                    <Link to="/dashboard">
-                        <div className="ch-navbar-menu-container-item">
-                            <span>
                                 <i className="fa fa-newspaper-o" aria-hidden="true"></i>
                                 Newsletter
                             </span>
@@ -99,7 +98,33 @@ const Navbar: React.FC<INavbarProps> = ({
                             </span>
                         </div>
                     </Link>
-                    
+
+                    <Link to="/dashboard">
+                        <div className="ch-navbar-menu-container-item">
+                            <span>
+                                <i className="fa fa-users" aria-hidden="true"></i>
+                                Accounts
+                            </span>
+                        </div>
+                    </Link>
+
+                    <Link to="#">
+                        <div className="ch-navbar-menu-container-item">
+                            <span>
+                                <i className="fa fa-user" aria-hidden="true"></i>
+                                Profile
+                            </span>
+                        </div>
+                    </Link>
+
+                    <Link to="#" onClick={logout}>
+                        <div className="ch-navbar-menu-container-item">
+                            <span>
+                                <i className="fa fa-sign-out" aria-hidden="true"></i>
+                                Logout
+                            </span>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>

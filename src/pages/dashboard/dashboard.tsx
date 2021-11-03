@@ -1,13 +1,25 @@
 import { Component } from "react";
-// import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/navbar";
+import IUser from "../../interfaces/IUser";
+import AdministratorService from "../../services/administratorService";
 import './dashboard.css';
 
-interface IDashboardViewModel { }
+class Dashboard extends Component{
+    _administratorService : AdministratorService;
 
-class Dashboard extends Component<IDashboardViewModel>{
+    constructor(props: any){
+        super(props);
+        this._administratorService = new AdministratorService();
+        
+        if(!this._administratorService.administratorAlreadyLogged())
+            window.location.href = "/login";
+
+        this.state.user = this._administratorService.getLoggedAdministratorData();
+    }
+    
     state = {
-        currentDate: new Date().toString().substr(0, 28)
+        currentDate: new Date().toString().substring(0, 25),
+        user: {} as IUser
     }
 
     getLastSalesTable = () => {
@@ -45,7 +57,7 @@ class Dashboard extends Component<IDashboardViewModel>{
                    <div className="dashboard-itens">
                         <div className="dashboard-title">
                             <h3>Dashboard</h3>
-                            <p>Welcome abboard, <strong>Lucas Eschechola</strong>, your dashboard is updated at: <strong>{this.state.currentDate}</strong></p>
+                            <p>Welcome abboard, <strong>{ this.state.user.name }</strong>, your dashboard is updated at: <strong>{this.state.currentDate}</strong></p>
                         </div>
 
                         <div className="dashboard-cards-container">
