@@ -6,7 +6,7 @@ interface IUser {
     token: String,
     refreshToken: String,
     tokenExpiration: Date,
-    pictureUrl: String,
+    profilePictureUrl: String,
     remember: boolean
 }
 

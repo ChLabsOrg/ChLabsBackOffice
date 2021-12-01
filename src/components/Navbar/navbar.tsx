@@ -2,20 +2,33 @@ import { Link } from 'react-router-dom';
 import AdministratorService from '../../services/administratorService';
 import './navbar.css';
 
+const _administratorService = new AdministratorService();
+
 interface INavbarProps {
     menuChecked?: number;
 }
 
 const logout = () =>{
-    const _administratorService = new AdministratorService();
     _administratorService.logoutAdministrator();
-
     window.location.href = "/";
+}
+
+const getUserProfilePictureUrl = () => {
+    const user = _administratorService.getLoggedAdministratorData();
+
+    if(user.profilePictureUrl !== null &&
+       user.profilePictureUrl !== "" &&
+       user.profilePictureUrl !== undefined)
+       return user.profilePictureUrl as string;
+
+    return '/assets/images/default_profile_picture.png'
 }
 
 const Navbar: React.FC<INavbarProps> = ({
     menuChecked
 }) => {
+    const profilePictureUrl =  getUserProfilePictureUrl();
+
     return (
         <div className="ch-navbar">
             <div className="ch-navbar-title">
@@ -30,8 +43,8 @@ const Navbar: React.FC<INavbarProps> = ({
             <div className="ch-navbar-user">
                 <div className="ch-navbar-user-image-container">
                     <div className="ch-navbar-user-image">
-                        <a href="https://eschechola.com.br/images/me.png">
-                            <img src="https://eschechola.com.br/images/me.png" alt="your pic"/>
+                        <a href={profilePictureUrl}>
+                            <img src={profilePictureUrl} alt="your pic"/>
                         </a>
                     </div>
                 </div>
@@ -68,6 +81,15 @@ const Navbar: React.FC<INavbarProps> = ({
                             <span>
                                 <i className="fa fa-file-text" aria-hidden="true"></i>
                                 Articles
+                            </span>
+                        </div>
+                    </Link>
+
+                    <Link to="/dashboard">
+                        <div className="ch-navbar-menu-container-item">
+                            <span>
+                                <i className="fa fa-id-badge" aria-hidden="true"></i>
+                                Authors
                             </span>
                         </div>
                     </Link>
